@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { format } from "date-fns";
@@ -56,7 +57,7 @@ const BlogPostPage = () => {
 
   // Custom components for React Markdown
   const components = {
-    code({node, inline, className, children, ...props}: any) {
+    code({node, inline, className, children, ...props}) {
       const match = /language-(\w+)/.exec(className || '');
       return !inline && match ? (
         <SyntaxHighlighter
@@ -72,11 +73,11 @@ const BlogPostPage = () => {
         </SyntaxHighlighter>
       ) : (
         <code className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono" {...props}>
-          {children}
+          {String(children)}
         </code>
       );
     },
-    img({node, ...props}: any) {
+    img({node, ...props}) {
       // Skip rendering if src is empty or a placeholder
       if (!props.src || props.src.includes('placeholder.svg')) {
         return null;
@@ -91,13 +92,13 @@ const BlogPostPage = () => {
         </div>
       );
     },
-    h1({node, ...props}: any) {
+    h1({node, ...props}) {
       return <h2 className="text-3xl font-bold mt-12 mb-4" {...props} />;
     },
-    h2({node, ...props}: any) {
+    h2({node, ...props}) {
       return <h3 className="text-2xl font-bold mt-8 mb-4" {...props} />;
     },
-    p({node, ...props}: any) {
+    p({node, ...props}) {
       return <p className="my-4 leading-7 text-muted-foreground" {...props} />;
     }
   };
@@ -178,7 +179,7 @@ const BlogPostPage = () => {
                 components={components}
                 rehypePlugins={[rehypeHighlight]}
               >
-                {post.content}
+                {post.content || ''}
               </ReactMarkdown>
             </div>
           </article>
