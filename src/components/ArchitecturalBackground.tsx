@@ -31,9 +31,9 @@ const ArchitecturalBackground: React.FC = () => {
       speed: number;
     };
 
-    // Generate grid lines
+    // Generate elegant grid lines
     const lines: Line[] = [];
-    const linesCount = Math.floor(window.innerWidth / 50);
+    const linesCount = Math.floor(window.innerWidth / 100); // Fewer lines for a cleaner look
 
     for (let i = 0; i < linesCount; i++) {
       lines.push({
@@ -41,8 +41,8 @@ const ArchitecturalBackground: React.FC = () => {
         y1: 0,
         x2: Math.random() * canvas.width,
         y2: canvas.height,
-        opacity: 0.03 + Math.random() * 0.05,
-        speed: 0.1 + Math.random() * 0.3,
+        opacity: 0.02 + Math.random() * 0.03, // More subtle opacity
+        speed: 0.05 + Math.random() * 0.15, // Slower movement
       });
 
       lines.push({
@@ -50,8 +50,8 @@ const ArchitecturalBackground: React.FC = () => {
         y1: Math.random() * canvas.height,
         x2: canvas.width,
         y2: Math.random() * canvas.height,
-        opacity: 0.03 + Math.random() * 0.05,
-        speed: 0.1 + Math.random() * 0.3,
+        opacity: 0.02 + Math.random() * 0.03,
+        speed: 0.05 + Math.random() * 0.15,
       });
     }
 
@@ -60,13 +60,13 @@ const ArchitecturalBackground: React.FC = () => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      // Draw and update lines
+      // Draw subtle, elegant grid lines
       lines.forEach(line => {
         ctx.beginPath();
         ctx.moveTo(line.x1, line.y1);
         ctx.lineTo(line.x2, line.y2);
         ctx.strokeStyle = `rgba(100, 100, 120, ${line.opacity})`;
-        ctx.lineWidth = 1;
+        ctx.lineWidth = 0.5; // Thinner lines for elegance
         ctx.stroke();
         
         // Move vertical lines
@@ -92,21 +92,57 @@ const ArchitecturalBackground: React.FC = () => {
         }
       });
 
-      // Draw some architectural circles
-      for (let i = 0; i < 5; i++) {
-        const x = (canvas.width / 5) * i + (Math.sin(Date.now() * 0.001 + i) * 20);
-        const y = (canvas.height / 3) + (Math.cos(Date.now() * 0.001 + i) * 20);
-        const radius = 40 + Math.sin(Date.now() * 0.002 + i * 0.5) * 10;
+      // Draw subtle architectural circles
+      for (let i = 0; i < 3; i++) {
+        const x = (canvas.width / 3) * i + (Math.sin(Date.now() * 0.0005 + i) * 10);
+        const y = (canvas.height / 2) + (Math.cos(Date.now() * 0.0005 + i) * 10);
+        const radius = 100 + Math.sin(Date.now() * 0.001 + i * 0.5) * 20;
         
         ctx.beginPath();
         ctx.arc(x, y, radius, 0, Math.PI * 2);
-        ctx.strokeStyle = 'rgba(100, 100, 120, 0.05)';
-        ctx.lineWidth = 2;
+        ctx.strokeStyle = 'rgba(100, 100, 120, 0.03)';
+        ctx.lineWidth = 0.8;
         ctx.stroke();
       }
 
+      // Draw some elegant golden ratio spirals
+      drawArchitecturalSpiral(ctx, canvas.width * 0.8, canvas.height * 0.3, 10, 0.1);
+      drawArchitecturalSpiral(ctx, canvas.width * 0.2, canvas.height * 0.7, 10, 0.1);
+
       animationFrameId = window.requestAnimationFrame(animate);
     };
+
+    // Function to draw an elegant spiral (golden ratio)
+    function drawArchitecturalSpiral(
+      context: CanvasRenderingContext2D, 
+      x: number, 
+      y: number, 
+      size: number, 
+      opacity: number
+    ) {
+      const growthFactor = 1.618; // Golden ratio
+      const maxRadius = 80;
+      const angleIncrement = Math.PI / 10;
+      let angle = 0;
+      let radius = size;
+      
+      context.beginPath();
+      context.moveTo(x, y);
+      
+      while (radius < maxRadius) {
+        angle += angleIncrement;
+        radius *= growthFactor / 10;
+        const newX = x + Math.cos(angle) * radius;
+        const newY = y + Math.sin(angle) * radius;
+        
+        context.lineTo(newX, newY);
+        if (radius > maxRadius) break;
+      }
+      
+      context.strokeStyle = `rgba(100, 100, 120, ${opacity})`;
+      context.lineWidth = 0.5;
+      context.stroke();
+    }
 
     animate();
 
