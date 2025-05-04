@@ -6,17 +6,18 @@ export default function AboutSection() {
         <h2 className="section-title">About Me</h2>
         <div className="max-w-3xl">
           <p className="text-lg mb-4">
-            I'm a passionate frontend developer with a keen eye for design and a love for creating seamless user experiences. 
-            My journey in web development began several years ago, and I've been hooked ever since.
+            I'm a Principal Architect with extensive experience in developing API builders, robust payment systems, 
+            and data engineering solutions. My expertise spans across designing scalable software architectures 
+            that significantly reduce integration time and error rates.
           </p>
           <p className="text-lg mb-4">
-            I specialize in modern JavaScript frameworks like React, and I pride myself on writing clean, maintainable code 
-            that delivers exceptional user experiences. When I'm not coding, you can find me exploring new technologies, 
-            contributing to open-source projects, or enjoying the outdoors.
+            With a strong focus on data engineering, I've successfully orchestrated ETL pipelines, optimized SQL queries, 
+            and implemented innovative credit risk models that have improved accuracy by up to 40% over conventional models.
           </p>
           <p className="text-lg">
-            I'm always open to new opportunities and collaborations. If you think we could work together on something great, 
-            don't hesitate to reach out.
+            Currently, I'm working on compliance innovation projects where I lead architecture and development initiatives 
+            that have achieved substantial improvements in processing speed and team collaboration. I'm passionate about 
+            creating efficient systems that deliver exceptional user experiences.
           </p>
         </div>
       </div>

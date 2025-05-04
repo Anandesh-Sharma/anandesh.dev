@@ -1,9 +1,21 @@
 
 const skills = [
-  { category: 'Languages', items: ['JavaScript', 'TypeScript', 'HTML', 'CSS'] },
-  { category: 'Frameworks', items: ['React', 'Next.js', 'Tailwind CSS', 'Express.js'] },
-  { category: 'Tools', items: ['Git', 'Webpack', 'Vite', 'Jest', 'npm'] },
-  { category: 'Design', items: ['Figma', 'Adobe XD', 'Responsive Design', 'UI/UX Principles'] },
+  { 
+    category: 'Languages', 
+    items: ['Python', 'JavaScript', 'TypeScript', 'HTML/CSS', 'C/C++', 'SQL', 'Bash'] 
+  },
+  { 
+    category: 'Frameworks & Tools', 
+    items: ['React', 'Next.js', 'Django', 'Flask', 'Node.js', 'Spark', 'PySpark', 'Scrapy', 'Selenium', 'Git'] 
+  },
+  { 
+    category: 'Databases', 
+    items: ['PostgreSQL', 'MySQL', 'Redis', 'MongoDB', 'DynamoDB'] 
+  },
+  { 
+    category: 'Soft Skills', 
+    items: ['Leadership', 'Analytical Thinking', 'Effective Communication', 'Continuous Learning'] 
+  },
 ];
 
 export default function SkillsSection() {

@@ -7,6 +7,8 @@ const navItems = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
   { name: 'Skills', href: '#skills' },
+  { name: 'Experience', href: '#experience' },
+  { name: 'Education', href: '#education' },
   { name: 'Projects', href: '#projects' },
   { name: 'Contact', href: '#contact' }
 ];
@@ -37,7 +39,7 @@ export default function Header() {
     >
       <div className="container flex items-center justify-between">
         <a href="#home" className="font-mono font-semibold text-lg md:text-xl">
-          portfolio
+          anandesh
         </a>
         
         {/* Desktop Menu */}

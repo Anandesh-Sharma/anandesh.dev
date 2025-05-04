@@ -1,5 +1,5 @@
 
-import { Mail, Phone, Linkedin } from "lucide-react";
+import { Mail, Phone, Linkedin, Github } from "lucide-react";
 
 export default function ContactSection() {
   return (
@@ -15,33 +15,45 @@ export default function ContactSection() {
           <div className="space-y-6">
             <div className="flex items-center justify-center">
               <a 
-                href="mailto:hello@example.com" 
+                href="mailto:anandeshsok@gmail.com" 
                 className="flex items-center hover:text-primary transition-colors"
               >
                 <Mail size={20} className="mr-3" />
-                hello@example.com
+                anandeshsharma@gmail.com
               </a>
             </div>
             
             <div className="flex items-center justify-center">
               <a 
-                href="tel:+11234567890" 
+                href="tel:+919996944943" 
                 className="flex items-center hover:text-primary transition-colors"
               >
                 <Phone size={20} className="mr-3" />
-                +1 (123) 456-7890
+                +91 9996944943
               </a>
             </div>
             
             <div className="flex items-center justify-center">
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/in/anandesh-sharma" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center hover:text-primary transition-colors"
               >
                 <Linkedin size={20} className="mr-3" />
-                LinkedIn Profile
+                linkedin.com/in/anandesh-sharma
+              </a>
+            </div>
+
+            <div className="flex items-center justify-center">
+              <a 
+                href="https://github.com/Anandesh-Sharma" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center hover:text-primary transition-colors"
+              >
+                <Github size={20} className="mr-3" />
+                github.com/Anandesh-Sharma
               </a>
             </div>
           </div>
