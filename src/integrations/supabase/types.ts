@@ -9,13 +9,57 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      blog_posts: {
+        Row: {
+          author: string
+          content: string
+          description: string
+          id: string
+          is_published: boolean
+          published_at: string
+          read_time: number
+          slug: string
+          tags: string[] | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          author?: string
+          content: string
+          description: string
+          id?: string
+          is_published?: boolean
+          published_at?: string
+          read_time?: number
+          slug: string
+          tags?: string[] | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          author?: string
+          content?: string
+          description?: string
+          id?: string
+          is_published?: boolean
+          published_at?: string
+          read_time?: number
+          slug?: string
+          tags?: string[] | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_blog_path: {
+        Args: { blog: Database["public"]["Tables"]["blog_posts"]["Row"] }
+        Returns: string
+      }
     }
     Enums: {
       [_ in never]: never

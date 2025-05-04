@@ -1,93 +1,82 @@
 
-import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
 
-const navItems = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Education', href: '#education' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' }
-];
-
-export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const { pathname } = useLocation();
+  
+  const navigation = [
+    { name: "Home", href: "/" },
+    { name: "Blog", href: "/blog" },
+    { name: "About", href: "/#about" },
+    { name: "Skills", href: "/#skills" },
+    { name: "Experience", href: "/#experience" },
+    { name: "Education", href: "/#education" },
+    { name: "Projects", href: "/#projects" },
+    { name: "Contact", href: "/#contact" },
+  ];
+  
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  };
+  
+  const closeSheet = () => setIsOpen(false);
+  
   return (
-    <header 
-      className={cn(
-        'fixed top-0 left-0 w-full z-50 transition-all duration-300',
-        isScrolled ? 'bg-background/95 backdrop-blur-sm py-2 shadow-sm' : 'bg-transparent py-4'
-      )}
-    >
-      <div className="container flex items-center justify-between">
-        <a href="#home" className="font-mono font-semibold text-lg md:text-xl">
-          anandesh
-        </a>
+    <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-sm">
+      <div className="container flex h-16 items-center justify-between">
+        <Link to="/" className="text-xl font-semibold">Anandesh Sharma</Link>
         
-        {/* Desktop Menu */}
-        <nav className="hidden md:block">
-          <ul className="flex space-x-8">
-            {navItems.map((item) => (
-              <li key={item.name}>
-                <a 
-                  href={item.href}
-                  className="text-sm text-muted-foreground hover:text-foreground link-underline py-1"
+        <nav className="hidden md:flex gap-6">
+          {navigation.map((item) => (
+            <Link
+              key={item.name}
+              to={item.href}
+              className={`text-sm transition-colors hover:text-foreground/80 ${
+                isActive(item.href)
+                  ? "text-foreground font-medium"
+                  : "text-foreground/60"
+              }`}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </nav>
+        
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+          <SheetTrigger asChild className="md:hidden">
+            <Button variant="ghost" size="icon">
+              <Menu className="h-5 w-5" />
+              <span className="sr-only">Toggle menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right">
+            <nav className="flex flex-col gap-4 mt-8">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  onClick={closeSheet}
+                  className={`text-lg py-1 transition-colors ${
+                    isActive(item.href)
+                      ? "text-foreground font-medium"
+                      : "text-foreground/60"
+                  }`}
                 >
                   {item.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-foreground"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-background/95 backdrop-blur-sm shadow-md py-4 animate-fade-in">
-          <nav className="container">
-            <ul className="flex flex-col space-y-4">
-              {navItems.map((item) => (
-                <li key={item.name}>
-                  <a 
-                    href={item.href}
-                    className="block py-2 text-muted-foreground hover:text-foreground"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </a>
-                </li>
+                </Link>
               ))}
-            </ul>
-          </nav>
-        </div>
-      )}
+            </nav>
+          </SheetContent>
+        </Sheet>
+      </div>
     </header>
   );
-}
+};
+
+export default Header;
