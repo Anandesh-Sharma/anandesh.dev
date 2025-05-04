@@ -65,6 +65,8 @@ const BlogPostPage = () => {
           language={match[1]}
           PreTag="div"
           className="rounded-md my-4"
+          showLineNumbers={true}
+          wrapLines={true}
           {...props}
         >
           {String(children).replace(/\n$/, '')}
