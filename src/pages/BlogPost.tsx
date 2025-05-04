@@ -3,8 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { format } from "date-fns";
 import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import rehypeHighlight from "rehype-highlight";
+// Remove direct imports of remark-gfm and rehype-highlight
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Separator } from "@/components/ui/separator";
@@ -124,10 +123,7 @@ const BlogPostPage = () => {
           <Separator className="mb-8" />
           
           <div className="blog-content">
-            <ReactMarkdown 
-              remarkPlugins={[remarkGfm]}
-              rehypePlugins={[rehypeHighlight]}
-            >
+            <ReactMarkdown>
               {post.content}
             </ReactMarkdown>
           </div>
