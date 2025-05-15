@@ -1,0 +1,108 @@
+---
+title: "Mastering TypeScript"
+description: "Take your JavaScript skills to the next level with TypeScript"
+date: "2025-05-04"
+author: "John Smith"
+tags: ["typescript", "javascript", "web development"]
+image: "/images/blog/typescript-code.jpg"
+---
+
+# Mastering TypeScript
+
+TypeScript is a powerful superset of JavaScript that adds static types to the language. It helps catch errors during development and provides better tooling for large-scale applications.
+
+## Why TypeScript?
+
+TypeScript brings several advantages to your development workflow:
+
+- **Static Typing**: Catch type-related errors at compile time instead of runtime
+- **Better IDE Support**: Get better autocompletion, navigation, and refactoring tools
+- **Clear Interfaces**: Make your code more readable and self-documenting
+- **Enhanced JavaScript**: Use the latest ECMAScript features with backward compatibility
+
+## Basic Types
+
+TypeScript provides several basic types:
+
+```typescript
+// Basic types
+let isDone: boolean = false;
+let decimal: number = 6;
+let color: string = "blue";
+let list: number[] = [1, 2, 3];
+let tuple: [string, number] = ["hello", 10];
+
+// enum
+enum Color {Red, Green, Blue}
+let c: Color = Color.Green;
+
+// any - use sparingly!
+let notSure: any = 4;
+notSure = "maybe a string";
+notSure = false;
+
+// void
+function warnUser(): void {
+  console.log("This is a warning message");
+}
+```
+
+## Interfaces
+
+Interfaces define the shape of objects:
+
+```typescript
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  age?: number; // Optional property
+  readonly createdAt: Date; // Can't be changed after creation
+}
+
+function createUser(user: User): User {
+  return user;
+}
+```
+
+## Functions
+
+TypeScript allows you to type your function parameters and return values:
+
+```typescript
+function add(x: number, y: number): number {
+  return x + y;
+}
+
+// Function types
+let myAdd: (x: number, y: number) => number = add;
+```
+
+## Generics
+
+Generics provide a way to create reusable components:
+
+```typescript
+function identity<T>(arg: T): T {
+  return arg;
+}
+
+let output = identity<string>("myString");
+```
+
+## Type Narrowing
+
+TypeScript's control flow analysis helps narrow types:
+
+```typescript
+function padLeft(value: string, padding: string | number) {
+  if (typeof padding === "number") {
+    return " ".repeat(padding) + value;
+  }
+  return padding + value;
+}
+```
+
+## Conclusion
+
+TypeScript is a valuable tool for any JavaScript developer looking to write more maintainable and robust code. By investing time in learning TypeScript, you'll save countless hours debugging and refactoring in the future. 

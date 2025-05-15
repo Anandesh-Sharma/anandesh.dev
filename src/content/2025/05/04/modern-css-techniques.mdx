@@ -1,0 +1,150 @@
+---
+title: "Modern CSS Techniques for 2025"
+description: "Discover the latest CSS features and techniques that will transform your web designs"
+date: "2025-05-04"
+author: "Alex Johnson"
+tags: ["css", "web design", "frontend"]
+image: "/images/blog/modern-css.jpg"
+---
+
+# Modern CSS Techniques for 2025
+
+CSS continues to evolve rapidly, giving developers powerful new tools to create stunning web experiences. In this article, we'll explore some of the most exciting CSS features and techniques that are transforming web design in 2025.
+
+## CSS Container Queries
+
+Container queries allow you to style elements based on the size of their container rather than the viewport. This enables truly responsive components that can adapt to their context.
+
+```css
+@container (min-width: 700px) {
+  .card {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+}
+```
+
+## Cascade Layers
+
+Cascade layers give you more control over specificity in your stylesheets, making it easier to manage large codebases and override styles in a predictable way.
+
+```css
+@layer base, components, utilities;
+
+@layer base {
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}
+
+@layer components {
+  .card h1 {
+    font-size: 1.5rem;
+  }
+}
+```
+
+## :has() Selector
+
+The :has() selector (aka the "parent selector") lets you select elements based on their children, something that was impossible in CSS before.
+
+```css
+/* Style cards that contain images */
+.card:has(img) {
+  padding-top: 0;
+}
+
+/* Style paragraphs that are followed by a list */
+p:has(+ ul) {
+  margin-bottom: 0.5em;
+}
+```
+
+## Subgrid
+
+Subgrid allows nested grids to inherit the track sizes of their parent grid, making it easier to create complex aligned layouts.
+
+```css
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: subgrid;
+}
+```
+
+## Scroll-driven Animations
+
+Scroll-driven animations allow you to tie animation progress to scroll position, creating engaging interactive experiences.
+
+```css
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.reveal {
+  animation: fade-in linear;
+  animation-timeline: scroll();
+  animation-range: entry 10% cover 30%;
+}
+```
+
+## Color Functions
+
+Modern color functions provide more intuitive ways to manipulate colors:
+
+```css
+.button {
+  /* Adjust lightness */
+  background-color: oklch(from var(--brand-color) l calc(l - 10%) c h);
+  
+  /* Create complementary color */
+  border-color: oklch(from var(--brand-color) l c calc(h + 180deg));
+}
+```
+
+## Nesting
+
+Native CSS nesting makes it easier to write and maintain your styles without a preprocessor:
+
+```css
+.card {
+  padding: 1rem;
+  
+  & h2 {
+    margin-top: 0;
+  }
+  
+  & .content {
+    line-height: 1.5;
+    
+    & p {
+      margin-bottom: 1rem;
+    }
+  }
+}
+```
+
+## View Transitions API
+
+The View Transitions API makes it easy to create smooth transitions between different states or pages:
+
+```css
+::view-transition-old(root) {
+  animation: fade-out 0.5s ease-out;
+}
+
+::view-transition-new(root) {
+  animation: fade-in 0.5s ease-in;
+}
+```
+
+## Conclusion
+
+These modern CSS techniques provide powerful tools for creating more dynamic, responsive, and visually engaging web experiences. By leveraging these features, you can build websites that are not only beautiful but also more maintainable and performant. 

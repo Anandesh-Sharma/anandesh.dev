@@ -1,0 +1,83 @@
+---
+title: "Getting Started with React"
+description: "Learn the fundamentals of React and how to build your first application"
+date: "2025-05-04"
+author: "Jane Doe"
+tags: ["react", "javascript", "web development"]
+image: "/images/blog/react-intro.jpg"
+---
+
+# Getting Started with React
+
+React is a JavaScript library for building user interfaces. It lets you create reusable UI components and efficiently update the DOM when your data changes.
+
+## Why React?
+
+React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
+
+### Declarative
+
+React makes your code more predictable and easier to debug. Instead of manipulating the DOM directly, you describe what you want your UI to look like at any given point in time.
+
+### Component-Based
+
+Build encapsulated components that manage their own state, then compose them to make complex UIs. Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app.
+
+## Setting Up Your First React Project
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+function HelloWorld() {
+  return <h1>Hello, world!</h1>;
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<HelloWorld />);
+```
+
+## JSX Syntax
+
+JSX is a syntax extension for JavaScript that looks similar to HTML or XML. It allows you to write HTML-like code in your JavaScript files:
+
+```jsx
+const element = <h1>Hello, world!</h1>;
+```
+
+## Components and Props
+
+Components let you split the UI into independent, reusable pieces:
+
+```jsx
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+```
+
+## State and Lifecycle
+
+Components can manage their own state:
+
+```jsx
+import { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+
+
+
+## Conclusion
+
+This is just the beginning of your React journey. As you continue learning, you'll discover hooks, context, and many other powerful features that make React a joy to work with. 

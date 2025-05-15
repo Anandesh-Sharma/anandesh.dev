@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -73,6 +72,73 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+			typography: {
+				DEFAULT: {
+					css: {
+						maxWidth: 'none',
+						color: 'hsl(var(--foreground))',
+						a: {
+							color: 'hsl(var(--primary))',
+							textDecoration: 'none',
+							'&:hover': {
+								color: 'hsl(var(--primary))',
+								textDecoration: 'underline',
+							},
+						},
+						h1: {
+							color: 'hsl(var(--foreground))',
+							fontWeight: '700',
+						},
+						h2: {
+							color: 'hsl(var(--foreground))',
+							fontWeight: '600',
+						},
+						h3: {
+							color: 'hsl(var(--foreground))',
+							fontWeight: '600',
+						},
+						h4: {
+							color: 'hsl(var(--foreground))',
+							fontWeight: '600',
+						},
+						code: {
+							color: 'hsl(var(--foreground))',
+							backgroundColor: 'hsl(var(--muted))',
+							borderRadius: '0.25rem',
+							padding: '0.25rem 0.5rem',
+							fontWeight: '400',
+						},
+						'code::before': {
+							content: '""',
+						},
+						'code::after': {
+							content: '""',
+						},
+						pre: {
+							backgroundColor: 'hsl(var(--card))',
+							borderRadius: '0.5rem',
+							padding: '1rem',
+							overflowX: 'auto',
+						},
+						hr: {
+							borderColor: 'hsl(var(--border))',
+						},
+						'ul > li::marker': {
+							color: 'hsl(var(--muted-foreground))',
+						},
+						'ol > li::marker': {
+							color: 'hsl(var(--muted-foreground))',
+						},
+						strong: {
+							color: 'hsl(var(--foreground))',
+						},
+						blockquote: {
+							color: 'hsl(var(--foreground))',
+							borderLeftColor: 'hsl(var(--border))',
+						},
+					},
+				},
+			},
 			keyframes: {
 				'accordion-down': {
 					from: {
@@ -102,5 +168,5 @@ export default {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;

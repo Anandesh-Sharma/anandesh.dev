@@ -1,5 +1,0 @@
-
-project_id = "kiqsrzkkraxqfyjqnifa"
-
-[functions.process-mdx]
-verify_jwt = false

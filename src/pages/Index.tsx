@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
@@ -8,6 +7,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import EducationSection from "@/components/EducationSection";
+import BlogPreviewSection from "@/components/BlogPreviewSection";
 
 const Index = () => {
   return (
@@ -20,6 +20,7 @@ const Index = () => {
         <ExperienceSection />
         <EducationSection />
         <ProjectsSection />
+        <BlogPreviewSection />
         <ContactSection />
       </main>
       <Footer />

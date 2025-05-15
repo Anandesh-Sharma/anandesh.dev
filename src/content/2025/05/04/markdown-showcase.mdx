@@ -1,0 +1,235 @@
+---
+title: "Markdown Showcase: Advanced MDX Features"
+description: "A comprehensive demonstration of all MDX features including images, tables, code blocks, and more"
+date: "2025-05-04"
+author: "John Developer"
+tags: ["markdown", "mdx", "tutorial", "web development"]
+image: "/images/blog/markdown-showcase.jpg"
+---
+
+# Markdown Showcase: Advanced MDX Features
+
+This post demonstrates the full range of Markdown and MDX capabilities in our blog system. From basic formatting to complex code blocks with syntax highlighting, this guide covers it all.
+
+## Basic Formatting
+
+You can use **bold**, *italic*, or ***bold and italic*** text. You can also use ~~strikethrough~~ for text that's no longer relevant.
+
+### Lists
+
+Unordered lists:
+- Item one
+- Item two
+- Item three
+  - Nested item
+  - Another nested item
+
+Ordered lists:
+1. First item
+2. Second item
+3. Third item
+   1. Nested numbered item
+   2. Another nested item
+
+### Blockquotes
+
+> Blockquotes are great for highlighting important information or quotes from others.
+>
+> You can have multiple paragraphs in a blockquote.
+>
+> > And even nested blockquotes!
+
+## Images
+
+Images can be added with Markdown syntax. Here's an example using the provided URL:
+
+![Image URL Header](https://cloudinary-marketing-res.cloudinary.com/images/w_1000,c_scale/v1679921049/Image_URL_header/Image_URL_header-png?_i=AA)
+
+You can also add HTML for more control:
+
+<div style={{ maxWidth: '600px', margin: '2rem auto', textAlign: 'center' }}>
+  <img 
+    src="https://cloudinary-marketing-res.cloudinary.com/images/w_1000,c_scale/v1679921049/Image_URL_header/Image_URL_header-png?_i=AA" 
+    alt="Cloud Image URL Header" 
+    style={{ width: '100%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}
+  />
+  <div style={{ marginTop: '0.5rem', fontSize: '0.9em', color: 'gray' }}>
+    Figure 1: Cloud Image URL Header with custom styling
+  </div>
+</div>
+
+## Tables
+
+Tables can be created with pipes and dashes:
+
+| Feature | Supported | Notes |
+|---------|:---------:|-------|
+| Bold | ✅ | Use `**text**` |
+| Italic | ✅ | Use `*text*` |
+| Code | ✅ | Use backticks |
+| Images | ✅ | Use `![alt](url)` |
+| Links | ✅ | Use `[text](url)` |
+| Tables | ✅ | Use pipes and dashes |
+
+You can align columns by adding colons in the header row:
+
+| Left-aligned | Center-aligned | Right-aligned |
+|:-------------|:--------------:|---------------:|
+| Left | Center | Right |
+| Longer text | Centered | Right aligned |
+
+## Code Blocks
+
+### Inline Code
+
+You can use `inline code` for short code snippets.
+
+### Fenced Code Blocks
+
+```javascript
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+console.log(greet('World'));
+```
+
+```css
+.blog-post {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.blog-post h1 {
+  color: #333;
+  font-size: 2.5rem;
+}
+```
+
+```python
+def fibonacci(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+
+print([fibonacci(n) for n in range(10)])
+```
+
+## React Components in MDX
+
+MDX allows you to use React components directly in your markdown:
+
+```jsx
+import { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+
+## Diagrams
+
+Since Mermaid isn't directly supported yet, here's how a diagram could be displayed using an image:
+
+<div style={{ textAlign: 'center', margin: '2rem 0' }}>
+  <img 
+    src="https://mermaid.ink/img/pako:eNpNjsEKwjAQRH8l7FkFf0DwIOTiqdBjoWQbg2bjkm6EUvrvblrByzAM894csAN1hJRhvwhMNPELTjhFUcC9CpsL6ZCFKkbpGexZ2I0aZ-z1xDxj6-D1WdZSS0wY0f5jxyYtujz3GKlqN1sUbf1AlmFZvxVzIZE4MoVI7XWMlYrEz_qojlZ5KrV-A6iROLk?type=png" 
+    alt="Flow diagram showing a simple workflow" 
+    style={{ maxWidth: '100%', borderRadius: '8px' }}
+  />
+  <div style={{ marginTop: '0.5rem', fontSize: '0.9em', color: 'gray' }}>
+    Figure 2: Simple workflow diagram example
+  </div>
+</div>
+
+## Mathematical Formulas
+
+With KaTeX support, we can now properly render mathematical equations:
+
+The Pythagorean identity:
+
+$1 = \cos^2(x) + \sin^2(x)$
+
+The quadratic formula:
+
+$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
+
+Einstein's famous equation:
+
+$E = mc^2$
+
+Euler's identity:
+
+$$e^{i\pi} + 1 = 0$$
+
+A more complex equation:
+
+$$\frac{\partial^2 u}{\partial t^2} = c^2 \nabla^2 u$$
+
+
+## Horizontal Rules
+
+You can add horizontal rules with three hyphens:
+
+---
+
+## Task Lists
+
+- [x] Write the blog post
+- [x] Add images
+- [x] Format code blocks
+- [ ] Publish the post
+- [ ] Share on social media
+
+## Emojis
+
+You can use Unicode emojis directly:
+
+😄 🚀 📚 👍 💻 🎉 🔥 ⭐ 🌈 ✅
+
+## Advanced Styling
+
+You can use CSS-in-JS styling for custom components:
+
+<div style={{ 
+  background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', 
+  color: 'white',
+  padding: '2rem',
+  borderRadius: '8px',
+  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+  margin: '2rem 0'
+}}>
+  <h3 style={{ margin: '0 0 1rem 0' }}>Custom Styled Block</h3>
+  <p style={{ margin: '0', opacity: 0.9 }}>
+    You can create custom styled components using inline styles in MDX.
+  </p>
+</div>
+
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+
+    
+## Conclusion
+
+Two π is: {Math.PI * 2}
+
+This post has demonstrated the rich formatting capabilities of Markdown and MDX. From basic formatting to complex code blocks with syntax highlighting, you now have a comprehensive reference for creating beautiful blog posts.
+
+The combination of Markdown's simplicity and MDX's power makes it an excellent choice for technical blog posts, documentation, and more.
+
+Happy writing! 
